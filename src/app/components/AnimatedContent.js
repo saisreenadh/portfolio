@@ -140,7 +140,7 @@ export default function AnimatedContent({ children }) {
         <div className="space-y-4">
           <div>
             <p className="mb-1">
-              <span className="text-[1.1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Multimodal Fire Risk Analysis System</span>
+              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Multimodal Fire Risk Analysis System</span>
               <span style={{ color: 'var(--gray-600)' }}> — Fire hazard detection system using geospatial analytics and deep learning for predictive monitoring. <span className="font-[500]">Winner of Google's Multimodal Hackathon</span> ($3000+ in prizes).</span>
             </p>
             <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
@@ -150,7 +150,7 @@ export default function AnimatedContent({ children }) {
 
           <div>
             <p className="mb-1">
-              <span className="text-[1.1rem] font-[450]" style={{ color: 'var(--foreground)' }}>RAG-Based Resource Distribution Platform</span>
+              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>RAG-Based Resource Distribution Platform</span>
               <span style={{ color: 'var(--gray-600)' }}> — Shelter resource management system using RAG and real-time processing for optimized distribution. Features vector-based retrieval for efficient allocation.</span>
             </p>
             <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
@@ -160,7 +160,7 @@ export default function AnimatedContent({ children }) {
 
           <div>
             <p className="mb-1">
-              <span className="text-[1.1rem] font-[450]" style={{ color: 'var(--foreground)' }}>LLM-Powered Interactive Game Engine</span>
+              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>LLM-Powered Interactive Game Engine</span>
               <span style={{ color: 'var(--gray-600)' }}> — Multiplayer word game with GPT-powered hint generation and real-time interaction. Implements WebSocket technology for seamless multiplayer experience.</span>
             </p>
             <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
@@ -170,7 +170,7 @@ export default function AnimatedContent({ children }) {
 
           <div>
             <p className="mb-1">
-              <span className="text-[1.1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Geospatial Route Optimization Engine</span>
+              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Geospatial Route Optimization Engine</span>
               <span style={{ color: 'var(--gray-600)' }}> — Navigation platform with advanced pathfinding algorithms for multi-stop route planning. Features OAuth authentication and personalized route recommendations.</span>
             </p>
             <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
@@ -180,7 +180,7 @@ export default function AnimatedContent({ children }) {
 
           <div>
             <p className="mb-1">
-              <span className="text-[1.1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Real-Time Mask Detection CV System</span>
+              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Real-Time Mask Detection CV System</span>
               <span style={{ color: 'var(--gray-600)' }}> — Computer vision system using CNNs and cascade classifiers for face mask monitoring. Implements TensorFlow and OpenCV for efficient video processing and analysis.</span>
             </p>
             <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
