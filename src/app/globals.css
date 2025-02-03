@@ -44,42 +44,42 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  font-size: 1.0625rem;
+  font-size: 1rem;
 }
 
 h1 {
-  font-size: 1.875rem;
+  font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.3;
   color: var(--foreground);
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 h2 {
-  font-size: 1.375rem;
+  font-size: 1.3125rem;
   font-weight: 500;
   line-height: 1.3;
   color: var(--foreground);
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.875rem;
 }
 
 h3 {
-  font-size: 1.1875rem;
+  font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.3;
   color: var(--foreground);
   margin-top: 1rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.625rem;
 }
 
 .text-lg {
-  font-size: 1.0625rem;
+  font-size: 1rem;
   line-height: 1.75;
 }
 
 p {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.625rem;
 }
 
 a {

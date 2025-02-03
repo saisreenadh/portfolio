@@ -28,7 +28,7 @@ const itemVariants = {
 export default function AnimatedContent({ children }) {
   return (
     <motion.div
-      className="max-w-[850px] mx-auto"
+      className="w-full"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -37,9 +37,9 @@ export default function AnimatedContent({ children }) {
       <motion.div 
         variants={itemVariants}
         transition={{ duration: 0.5 }}
-        className="flex items-center gap-8 mb-10"
+        className="flex flex-col md:flex-row items-center gap-8 mb-10"
       >
-        <div className="w-[200px] h-[200px] relative overflow-hidden rounded-lg shrink-0">
+        <div className="w-[180px] h-[180px] relative overflow-hidden rounded-lg shrink-0">
           <Image
             src="/images/profile-original.jpg"
             alt="Profile"
@@ -48,7 +48,7 @@ export default function AnimatedContent({ children }) {
             priority
           />
         </div>
-        <div className="min-w-[600px]">
+        <div className="w-full md:min-w-0">
           <h1 className="mb-3" style={{ color: 'var(--foreground)' }}>
             Saisreenadh (Sreenadh) Yandapalli
           </h1>
@@ -91,7 +91,7 @@ export default function AnimatedContent({ children }) {
       <motion.section 
         variants={itemVariants}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="w-[850px] mb-10"
+        className="w-full mb-10"
       >
         <h2 className="mb-4">About</h2>
         <div className="space-y-4" style={{ color: 'var(--body-text)' }}>
@@ -105,7 +105,7 @@ export default function AnimatedContent({ children }) {
       <motion.section 
         variants={itemVariants}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-[850px] mb-10"
+        className="w-full mb-10"
       >
         <h2 className="mb-4">Experience</h2>
         <div className="space-y-4">
@@ -134,7 +134,7 @@ export default function AnimatedContent({ children }) {
       <motion.section 
         variants={itemVariants}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="w-[850px] mb-10"
+        className="w-full mb-10"
       >
         <h2 className="mb-4">Projects</h2>
         <div className="space-y-4">
@@ -194,7 +194,7 @@ export default function AnimatedContent({ children }) {
       <motion.section 
         variants={itemVariants}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="w-[850px] mb-10"
+        className="w-full mb-10"
       >
         <h2 className="mb-4">Contact</h2>
         <div className="space-y-4">
