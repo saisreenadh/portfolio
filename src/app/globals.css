@@ -238,10 +238,28 @@ section {
 }
 
 .wave-text {
-  background: linear-gradient(90deg, 
-    var(--foreground) 0%,
-    rgba(var(--foreground-rgb), 0.4) 50%,
-    var(--foreground) 100%
+  background: linear-gradient(90deg,
+    #3b82f6 0%,
+    #6366f1 30%,
+    #8b5cf6 50%,
+    #6366f1 70%,
+    #3b82f6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 500px 100%;
+  animation: textWave 5s linear infinite;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .wave-text {
+  background: linear-gradient(90deg,
+    #60a5fa 0%,
+    #818cf8 30%,
+    #a78bfa 50%,
+    #818cf8 70%,
+    #60a5fa 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
