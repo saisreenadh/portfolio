@@ -41,7 +41,7 @@ export default function AnimatedContent({ children }) {
       >
         <div className="w-[180px] h-[180px] relative overflow-hidden rounded-lg shrink-0">
           <Image
-            src="/images/profile-original.jpg"
+            src="/profile.jpg"
             alt="Profile"
             fill
             style={{ objectFit: 'cover' }}
