@@ -96,7 +96,7 @@ export default function AnimatedContent({ children }) {
         <h2 className="mb-4">About</h2>
         <div className="space-y-4" style={{ color: 'var(--body-text)' }}>
           <p>
-            Hi, I&apos;m Sreenadh (shree-nod), a Stanford CS student specializing in AI. I&apos;m interested in building AI-driven solutions that enhance human-computer interaction, optimize decision-making, and drive social impact.
+            Hi, I&apos;m Sreenadh, a Stanford CS student specializing in AI. I&apos;m interested in building AI-driven solutions that enhance human-computer interaction, optimize decision-making, and drive social impact.
           </p>
         </div>
       </motion.section>
