@@ -24,8 +24,17 @@
   --background-end-rgb: 26, 26, 26;
 }
 
-/* Only transition background color and text colors */
-*, *::before, *::after {
+/* Prevent transitions during page load to avoid flashing */
+html:not(.theme-mounted) *,
+html:not(.theme-mounted) *::before,
+html:not(.theme-mounted) *::after {
+  transition: none !important;
+}
+
+/* Only apply transitions after the page has fully loaded */
+html.theme-mounted *, 
+html.theme-mounted *::before, 
+html.theme-mounted *::after {
   transition: background-color 0.3s ease, 
              color 0.3s ease,
              border-color 0.3s ease,

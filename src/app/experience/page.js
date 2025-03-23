@@ -18,8 +18,8 @@ const experiences = [
     title: 'Software Engineer Intern',
     company: 'Onki',
     companyUrl: 'https://onki.ai/',
-    period: 'December 2024 - Present',
-    description: 'Building AI Voice chat.',
+    period: 'December 2024 - March 2025',
+    description: 'Built AI Voice chat.',
   },
   {
     title: 'Software Engineer Intern',

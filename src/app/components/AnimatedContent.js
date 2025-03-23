@@ -3,13 +3,15 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTheme } from './ThemeProvider'
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.1,
+      delayChildren: 0.1
     }
   }
 }
@@ -26,6 +28,13 @@ const itemVariants = {
 }
 
 export default function AnimatedContent({ children }) {
+  const { mounted } = useTheme();
+  
+  // Only animate content after the theme has been properly mounted
+  if (!mounted) {
+    return <div className="w-full opacity-0">{children}</div>;
+  }
+  
   return (
     <motion.div
       className="w-full"
@@ -82,7 +91,7 @@ export default function AnimatedContent({ children }) {
             </Link>
           </div>
           <p className="text-lg" style={{ color: 'var(--body-text)' }}>
-            Computer Science (AI) @ Stanford • SWE Intern @ Onki • AI Fellow @ Codeium
+            Computer Science (AI) @ Stanford • AI Fellow @ Codeium
           </p>
         </div>
       </motion.div>

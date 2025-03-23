@@ -6,11 +6,13 @@ const ThemeContext = createContext({})
 
 export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState('system')
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'system'
     setTheme(savedTheme)
     updateTheme(savedTheme)
+    setMounted(true)
 
     // Add listener for system theme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -40,7 +42,7 @@ export default function ThemeProvider({ children }) {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme: setThemeAndUpdate }}>
+    <ThemeContext.Provider value={{ theme, setTheme: setThemeAndUpdate, mounted }}>
       {children}
     </ThemeContext.Provider>
   )
