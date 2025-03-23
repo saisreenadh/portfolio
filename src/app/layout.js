@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
                   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                   const theme = savedTheme === 'system' ? systemTheme : savedTheme;
                   document.documentElement.setAttribute('data-theme', theme);
+                  // Transitions are disabled by default in CSS
                 } catch (e) {
                   console.error('Failed to set initial theme', e);
                 }

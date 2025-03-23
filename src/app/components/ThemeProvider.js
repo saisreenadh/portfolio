@@ -24,6 +24,16 @@ export default function ThemeProvider({ children }) {
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [theme])
+  
+  // Enable transitions after component mounts
+  useEffect(() => {
+    if (mounted) {
+      // Small delay to ensure everything is fully loaded
+      setTimeout(() => {
+        document.documentElement.classList.add('theme-ready')
+      }, 300)
+    }
+  }, [mounted])
 
   const updateTheme = (newTheme) => {
     const root = document.documentElement
