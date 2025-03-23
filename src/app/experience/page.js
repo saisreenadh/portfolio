@@ -22,31 +22,31 @@ const experiences = [
     description: 'Built AI Voice chat.',
   },
   {
-    title: 'Software Engineer Intern',
+    title: 'Software Engineer Intern (2x)',
     company: 'Locbit Inc.',
     companyUrl: 'https://locbit.com/',
     period: 'July 2024 - September 2024',
-    description: 'Developed APIs to integrate interactive data visualizations, collaborated with cross-functional teams to enhance IoT strategies, and optimized API integration for better application performance.',
+    description: 'Developed D3.js visualizations & optimized data analysis.',
   },
   {
     title: 'Software Engineer Intern',
     company: 'CollegePlan AI',
     companyUrl: 'https://collegeplan.app/',
     period: 'June 2024 - October 2024',
-    description: 'Developed chat completion APIs, redesigned core algorithms for scalability, and implemented testing frameworks to improve platform performance and stability.',
+    description: 'Built chat APIs w/ GPT-4o & Llama3.',
   },
   {
     title: 'Software Engineer Intern',
     company: 'Locbit Inc.',
     companyUrl: 'https://locbit.com/',
     period: 'June 2023 - August 2023',
-    description: 'Built programs using Google\'s APIs to identify IoT opportunities, enhanced front-end experiences, and improved UX for better customer engagement.',
+    description: 'Built an IoT lead tool w/ Google’s Custom Search API & improved UI.',
   },
   {
     title: 'Co-Founder',
     company: 'Kid-Kode',
     period: 'June 2020 - August 2024',
-    description: 'Designed programming curricula, tutored students in foundational coding skills, and created engaging hands-on projects to prepare students for the tech industry.',
+    description: 'Designed curricula, tutored students in programming, and built projects.',
   },
 ]
 
