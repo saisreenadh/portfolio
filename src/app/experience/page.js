@@ -12,7 +12,7 @@ const experiences = [
     company: 'Windsurf (Prev. Codeium)',
     companyUrl: 'https://codeium.com/',
     period: 'February 2025 - Present',
-    description: 'Growing and iterating onAI Code Editor Windsurf.',
+    description: 'Growing and iterating on AI Code Editor Windsurf.',
   },
   {
     title: 'Software Engineer Intern',
