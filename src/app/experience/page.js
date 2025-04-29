@@ -9,10 +9,10 @@ import { useState, useEffect } from 'react'
 const experiences = [
   {
     title: 'AI Fellow',
-    company: 'Codeium',
+    company: 'Windsurf (Prev. Codeium)',
     companyUrl: 'https://codeium.com/',
-    period: 'January 2025 - Present',
-    description: 'Growing and iterating AI Code Editor Windsurf.',
+    period: 'February 2025 - Present',
+    description: 'Growing and iterating onAI Code Editor Windsurf.',
   },
   {
     title: 'Software Engineer Intern',

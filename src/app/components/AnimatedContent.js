@@ -91,7 +91,7 @@ export default function AnimatedContent({ children }) {
             </Link>
           </div>
           <p className="text-lg" style={{ color: 'var(--body-text)' }}>
-            Computer Science (AI) @ Stanford • AI Fellow @ Codeium
+            Computer Science (AI) @ Stanford • GenAI @ Amazon • AI Fellow @ Windsurf
           </p>
         </div>
       </motion.div>
