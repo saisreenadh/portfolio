@@ -91,7 +91,7 @@ export default function AnimatedContent({ children }) {
             </Link>
           </div>
           <p className="text-lg" style={{ color: 'var(--body-text)' }}>
-            Computer Science (AI) @ Stanford • GenAI @ Amazon • AI Fellow @ Windsurf
+            Computer Science (AI) @ Stanford • Agentic AI @ AWS • AI Fellow @ Windsurf
           </p>
         </div>
       </motion.div>
@@ -179,7 +179,7 @@ export default function AnimatedContent({ children }) {
 
           <div>
             <p className="mb-1">
-              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Geospatial Route Optimization Engine</span>
+              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Geospatial Route Optimization</span>
               <span style={{ color: 'var(--gray-600)' }}> — Navigation platform with advanced pathfinding algorithms for multi-stop route planning. Features OAuth authentication and personalized route recommendations.</span>
             </p>
             <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>

@@ -8,45 +8,46 @@ import { useState, useEffect } from 'react'
 
 const experiences = [
   {
+    title: 'Software Engineer Intern',
+    company: 'AWS',
+    companyUrl: 'https://aws.amazon.com/',
+    period: 'June 2025 - September 2025',
+    description: 'Built an MCP server behind a new AWS agentic AI product.',
+  },
+  {
     title: 'AI Fellow',
-    company: 'Windsurf (Prev. Codeium)',
+    company: 'Windsurf',
     companyUrl: 'https://codeium.com/',
     period: 'February 2025 - Present',
-    description: 'Growing and iterating on AI Code Editor Windsurf.',
+    description: 'Growing and iterating on Codeium\'s new AI IDE Windsurf.',
   },
   {
     title: 'Software Engineer Intern',
     company: 'Onki',
     companyUrl: 'https://onki.ai/',
     period: 'December 2024 - March 2025',
-    description: 'Built AI Voice chat.',
+    description: 'Designed and shipped AI Voice chat.',
   },
   {
-    title: 'Software Engineer Intern (2x)',
-    company: 'Locbit Inc.',
+    title: 'Software Engineer Intern',
+    company: 'CollegePlan',
+    companyUrl: 'https://collegeplan.app/',
+    period: 'June 2024 - October 2024',
+    description: 'Created chat APIs w/ GPT-4o & Llama3.',
+  },
+  {
+    title: 'Software Engineer Intern',
+    company: 'Locbit',
     companyUrl: 'https://locbit.com/',
     period: 'July 2024 - September 2024',
     description: 'Developed D3.js visualizations & optimized data analysis.',
   },
   {
     title: 'Software Engineer Intern',
-    company: 'CollegePlan AI',
-    companyUrl: 'https://collegeplan.app/',
-    period: 'June 2024 - October 2024',
-    description: 'Built chat APIs w/ GPT-4o & Llama3.',
-  },
-  {
-    title: 'Software Engineer Intern',
-    company: 'Locbit Inc.',
+    company: 'Locbit',
     companyUrl: 'https://locbit.com/',
     period: 'June 2023 - August 2023',
-    description: 'Built an IoT lead tool w/ Google’s Custom Search API & improved UI.',
-  },
-  {
-    title: 'Co-Founder',
-    company: 'Kid-Kode',
-    period: 'June 2020 - August 2024',
-    description: 'Designed curricula, tutored students in programming, and built projects.',
+    description: 'Built an IoT lead tool w/ Google\'s Custom Search API & improved UI.',
   },
 ]
 
