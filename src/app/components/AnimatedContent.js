@@ -162,7 +162,7 @@ export default function AnimatedContent({ children }) {
       <motion.section 
         variants={itemVariants}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="w-full mt-8 pt-6 border-t border-gray-200 dark:border-gray-700"
+        className="w-full mt-8 pt-6"
       >
         <p className="text-sm text-center" style={{ color: 'var(--body-text)' }}>
           © 2025 Sreenadh Yandapalli

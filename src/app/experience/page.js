@@ -160,16 +160,6 @@ export default function Experience() {
             ))}
           </div>
         </motion.div>
-
-        {/* Copyright Section */}
-        <motion.div 
-          variants={itemVariants}
-          className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
-        >
-          <p className="text-sm text-center text-[var(--body-text)]">
-            © 2025 Sreenadh Yandapalli
-          </p>
-        </motion.div>
       </motion.main>
 
       {/* Theme toggle */}
