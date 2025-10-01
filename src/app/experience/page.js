@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import ThemeToggle from '../components/ThemeToggle'
-import PixelWaterfall from '../components/PixelWaterfall'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
@@ -161,20 +160,21 @@ export default function Experience() {
             ))}
           </div>
         </motion.div>
+
+        {/* Copyright Section */}
+        <motion.div 
+          variants={itemVariants}
+          className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700"
+        >
+          <p className="text-sm text-center text-[var(--body-text)]">
+            © 2025 Sreenadh Yandapalli
+          </p>
+        </motion.div>
       </motion.main>
 
-      {/* Right side with animation and theme toggle */}
-      <div className={`${isMobile ? 'hidden' : 'fixed right-0 top-0 bottom-0 w-[400px]'}`}>
-        {/* Theme toggle */}
-        <div className="absolute top-6 right-6 z-50">
-          <ThemeToggle />
-        </div>
-
-        {/* Animation container */}
-        <div className="absolute inset-0 w-[300px]">
-          <PixelWaterfall />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[var(--background)]" />
-        </div>
+      {/* Theme toggle */}
+      <div className={`${isMobile ? 'hidden' : 'fixed top-6 right-6 z-50'}`}>
+        <ThemeToggle />
       </div>
     </div>
   )

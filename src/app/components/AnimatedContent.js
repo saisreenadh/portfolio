@@ -139,70 +139,11 @@ export default function AnimatedContent({ children }) {
         </div>
       </motion.section>
 
-      {/* Projects Section */}
-      <motion.section 
-        variants={itemVariants}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="w-full mb-10"
-      >
-        <h2 className="mb-4">Projects</h2>
-        <div className="space-y-4">
-          <div>
-            <p className="mb-1">
-              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Multimodal Fire Risk Analysis System</span>
-              <span style={{ color: 'var(--gray-600)' }}> — Fire hazard detection system using geospatial analytics and deep learning for predictive monitoring. <span className="font-[500]">Winner of Google's Multimodal Hackathon</span> ($3000+ in prizes).</span>
-            </p>
-            <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
-              Technologies: Google Gemini, React, Python, ArcGIS
-            </p>
-          </div>
-
-          <div>
-            <p className="mb-1">
-              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>RAG-Based Resource Distribution Platform</span>
-              <span style={{ color: 'var(--gray-600)' }}> — Shelter resource management system using RAG and real-time processing for optimized distribution. Features vector-based retrieval for efficient allocation.</span>
-            </p>
-            <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
-              Technologies: Python, JavaScript, HTML, CSS, Google Vertex AI, Firebase, GenKit, React
-            </p>
-          </div>
-
-          <div>
-            <p className="mb-1">
-              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>LLM-Powered Interactive Game Engine</span>
-              <span style={{ color: 'var(--gray-600)' }}> — Multiplayer word game with GPT-powered hint generation and real-time interaction. Implements WebSocket technology for seamless multiplayer experience.</span>
-            </p>
-            <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
-              Technologies: Node.js, Express, OpenAI API, HTML, CSS, JavaScript
-            </p>
-          </div>
-
-          <div>
-            <p className="mb-1">
-              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Geospatial Route Optimization</span>
-              <span style={{ color: 'var(--gray-600)' }}> — Navigation platform with advanced pathfinding algorithms for multi-stop route planning. Features OAuth authentication and personalized route recommendations.</span>
-            </p>
-            <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
-              Technologies: Node.js, Express, Mongoose, Passport.js (Google OAuth), HTML, CSS, JavaScript, Bootstrap, Leaflet.js, MongoDB
-            </p>
-          </div>
-
-          <div>
-            <p className="mb-1">
-              <span className="text-[1rem] font-[450]" style={{ color: 'var(--foreground)' }}>Real-Time Mask Detection CV System</span>
-              <span style={{ color: 'var(--gray-600)' }}> — Computer vision system using CNNs and cascade classifiers for face mask monitoring. Implements TensorFlow and OpenCV for efficient video processing and analysis.</span>
-            </p>
-            <p className="text-sm tracking-wide" style={{ color: 'var(--gray-600)' }}>
-              Technologies: OpenCV, TensorFlow/Keras, Numpy, Haar Cascade Classifier, Python
-            </p>
-          </div>
-        </div>
-      </motion.section>
 
       {/* Contact Section */}
       <motion.section 
         variants={itemVariants}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         className="w-full mb-10"
       >
         <h2 className="mb-4">Contact</h2>
@@ -215,6 +156,17 @@ export default function AnimatedContent({ children }) {
             syandapalli [at] stanford [dot] edu
           </Link>
         </div>
+      </motion.section>
+
+      {/* Copyright Section */}
+      <motion.section 
+        variants={itemVariants}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="w-full mt-8 pt-6 border-t border-gray-200 dark:border-gray-700"
+      >
+        <p className="text-sm text-center" style={{ color: 'var(--body-text)' }}>
+          © 2025 Sreenadh Yandapalli
+        </p>
       </motion.section>
     </motion.div>
   )
