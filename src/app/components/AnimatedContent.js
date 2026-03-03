@@ -1,73 +1,53 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTheme } from './ThemeProvider'
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
-  }
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5
-    }
-  }
-}
-
 export default function AnimatedContent({ children }) {
   const { mounted } = useTheme();
   
-  // Only animate content after the theme has been properly mounted
+  // Only render content after the theme has been properly mounted
   if (!mounted) {
     return <div className="w-full opacity-0">{children}</div>;
   }
   
   return (
-    <motion.div
-      className="w-full"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      {/* Header Section */}
-      <motion.div 
-        variants={itemVariants}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col md:flex-row items-center gap-8 mb-10"
-      >
-        <div className="w-[180px] h-[180px] relative overflow-hidden rounded-lg shrink-0">
-          <Image
-            src="/profile.jpg"
-            alt="Profile"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-        </div>
-        <div className="w-full md:min-w-0">
-          <h1 className="mb-3" style={{ color: 'var(--foreground)' }}>
+    <div className="w-full max-w-6xl mx-auto px-6 py-8">
+      {/* Split Layout Container */}
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+        
+        {/* Left Column - Profile (Fixed on Desktop) */}
+        <div className="lg:w-80 lg:sticky lg:top-6 lg:self-start lg:mt-6">
+          {/* Profile Photo */}
+          <div className="w-24 h-24 relative overflow-hidden rounded-lg mb-4">
+            <Image
+              src="/profile.jpg"
+              alt="Profile"
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+          </div>
+          
+          {/* Name */}
+          <h1 className="text-xl font-medium mb-2" style={{ color: 'var(--foreground)' }}>
             Saisreenadh (Sreenadh) Yandapalli
           </h1>
-          <div className="flex gap-1 mb-3">
+          
+          {/* Tagline */}
+          <p className="text-sm mb-4" style={{ color: 'var(--body-text)' }}>
+            MTS @ OpenAI · Stanford CS (AI)
+          </p>
+          
+          {/* Social Links */}
+          <div className="flex gap-1">
             <Link href="https://github.com/saisreenadh" className="social-icon opacity-90 hover:opacity-100" aria-label="GitHub">
               <Image
                 src="/images/outline.png"
                 alt="GitHub"
-                width={20}
-                height={20}
+                width={18}
+                height={18}
                 priority
               />
             </Link>
@@ -75,8 +55,8 @@ export default function AnimatedContent({ children }) {
               <Image
                 src="/images/linkedin-new.png"
                 alt="LinkedIn"
-                width={20}
-                height={20}
+                width={18}
+                height={18}
                 priority
               />
             </Link>
@@ -84,90 +64,84 @@ export default function AnimatedContent({ children }) {
               <Image
                 src="/images/email.png"
                 alt="Email"
-                width={20}
-                height={20}
+                width={18}
+                height={18}
                 priority
               />
             </Link>
           </div>
-          <p className="text-lg" style={{ color: 'var(--body-text)' }}>
-            Computer Science (AI) @ Stanford • Agentic AI @ AWS • AI Fellow @ Windsurf
-          </p>
-        </div>
-      </motion.div>
-
-      {/* About Section */}
-      <motion.section 
-        variants={itemVariants}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="w-full mb-10"
-      >
-        <h2 className="mb-4">About</h2>
-        <div className="space-y-4" style={{ color: 'var(--body-text)' }}>
-          <p>
-            Hi, I&apos;m Sreenadh, a Stanford CS student specializing in AI. I&apos;m interested in building AI-driven solutions that enhance human-computer interaction, optimize decision-making, and drive social impact.
-          </p>
-        </div>
-      </motion.section>
-
-      {/* Experience Section */}
-      <motion.section 
-        variants={itemVariants}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="w-full mb-10"
-      >
-        <h2 className="mb-4">Experience</h2>
-        <div className="space-y-4">
-          <div className="relative inline-block">
-            <Link href="/experience" className="group flex items-center gap-2 hover:opacity-80 font-medium">
-              <span className="wave-text">Click here to learn more about my experience</span>
-              <svg 
-                className="w-5 h-5 transition-transform group-hover:translate-x-1" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={1.5} 
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
+          
+          {/* Location Block */}
+          <div className="mt-6">
+            <div className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--gray-600)' }}>
+              Location
+            </div>
+            <div className="text-sm" style={{ color: 'var(--body-text)' }}>
+              Bay Area · San Diego
+            </div>
+          </div>
+          
+          {/* Focus Block */}
+          <div className="mt-4">
+            <div className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--gray-600)' }}>
+              Focus
+            </div>
+            <div className="text-sm space-y-0.5" style={{ color: 'var(--body-text)' }}>
+              <div>Applied AI</div>
+              <div>Infrastructure</div>
+              <div>Model Behavior</div>
+            </div>
           </div>
         </div>
-      </motion.section>
-
-
-      {/* Contact Section */}
-      <motion.section 
-        variants={itemVariants}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="w-full mb-10"
-      >
-        <h2 className="mb-4">Contact</h2>
-        <div className="space-y-4">
-          <Link 
-            href="mailto:syandapalli@stanford.edu" 
-            style={{ color: 'var(--body-text)' }}
-            className="hover:opacity-80"
-          >
-            syandapalli [at] stanford [dot] edu
-          </Link>
+        
+        {/* Right Column - Content (Scrollable) */}
+        <div className="flex-1 space-y-12">
+          
+          {/* About Section */}
+          <section>
+            <h2 className="text-lg font-medium mb-4" style={{ color: 'var(--foreground)' }}>About</h2>
+            <div style={{ color: 'var(--body-text)' }}>
+              <p>
+                Currently working on -- at OpenAI. Previously Grok Imagine at xAI, and studying Computer Science (AI) at Stanford, with interests in infrastructure and backend systems.
+              </p>
+            </div>
+          </section>
+          
+          {/* Selected Experience Section */}
+          <section>
+            <h2 className="text-lg font-medium mb-4" style={{ color: 'var(--foreground)' }}>Recent Experience</h2>
+            <div className="space-y-3" style={{ color: 'var(--body-text)' }}>
+              <div>
+                <div className="font-medium">OpenAI — Member of Technical Staff</div>
+              </div>
+              <div>
+                <div className="font-medium">xAI — Member of Technical Staff (Grok Imagine)</div>
+              </div>
+              <div>
+                <div className="font-medium">AWS — MCP & AI Agents</div>
+              </div>
+              <div>
+                <div className="font-medium">Stanford — Computer Science (AI)</div>
+              </div>
+            </div>
+          </section>
+          
+          {/* Contact Section */}
+          <section>
+            <h2 className="text-lg font-medium mb-4" style={{ color: 'var(--foreground)' }}>Contact</h2>
+            <div>
+              <Link 
+                href="mailto:syandapalli@stanford.edu" 
+                style={{ color: 'var(--body-text)' }}
+                className="hover:opacity-80"
+              >
+                syandapalli [at] stanford [dot] edu
+              </Link>
+            </div>
+          </section>
+          
         </div>
-      </motion.section>
-
-      {/* Copyright Section */}
-      <motion.section 
-        variants={itemVariants}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="w-full mt-8 pt-6"
-      >
-        <p className="text-sm text-center" style={{ color: 'var(--body-text)' }}>
-          © 2025 Sreenadh Yandapalli
-        </p>
-      </motion.section>
-    </motion.div>
+      </div>
+    </div>
   )
 }
