@@ -37,7 +37,7 @@ export default function AnimatedContent({ children }) {
           
           {/* Tagline */}
           <p className="text-sm mb-4" style={{ color: 'var(--body-text)' }}>
-            MTS @ OpenAI · Stanford CS (AI)
+            MTS @ xAI · Stanford CS (AI)
           </p>
           
           {/* Social Links */}
@@ -102,7 +102,7 @@ export default function AnimatedContent({ children }) {
             <h2 className="text-lg font-medium mb-4" style={{ color: 'var(--foreground)' }}>About</h2>
             <div style={{ color: 'var(--body-text)' }}>
               <p>
-                Currently working on -- at OpenAI. Previously Grok Imagine at xAI, and studying Computer Science (AI) at Stanford, with interests in infrastructure and backend systems.
+                Previously Grok Imagine at xAI, and studying Computer Science (AI) at Stanford, with interests in infrastructure and backend systems.
               </p>
             </div>
           </section>
@@ -111,9 +111,6 @@ export default function AnimatedContent({ children }) {
           <section>
             <h2 className="text-lg font-medium mb-4" style={{ color: 'var(--foreground)' }}>Recent Experience</h2>
             <div className="space-y-3" style={{ color: 'var(--body-text)' }}>
-              <div>
-                <div className="font-medium">OpenAI — Member of Technical Staff</div>
-              </div>
               <div>
                 <div className="font-medium">xAI — Member of Technical Staff (Grok Imagine)</div>
               </div>
