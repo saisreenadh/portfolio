@@ -1,90 +1,28 @@
 'use client'
 
 import { useTheme } from './ThemeProvider'
-import { useState, useRef, useEffect } from 'react'
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef(null)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-      if (window.innerWidth < 768) {
-        setTheme('system')
-      }
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      window.removeEventListener('resize', checkMobile)
-    }
-  }, [setTheme])
-
-  const options = [
-    { value: 'light', label: 'Light' },
-    { value: 'dark', label: 'Dark' },
-    { value: 'system', label: 'System' },
-  ]
-
-  const getThemeIcon = (themeValue) => {
-    switch(themeValue) {
-      case 'dark': return '●'
-      case 'light': return '○'
-      default: return '◐'
-    }
-  }
-
-  // Hide on mobile
-  if (isMobile) {
-    return null
-  }
+  const { theme, toggleTheme } = useTheme()
+  const next = theme === 'dark' ? 'light' : 'dark'
 
   return (
-    <div className="fixed top-6 right-6 hidden md:block" ref={dropdownRef}>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="theme-toggle-button"
-        aria-label="Toggle theme"
-      >
-        <span className="flex items-center">
-          {getThemeIcon(theme)}
-          <span className="ml-2 text-sm">
-            {options.find(opt => opt.value === theme)?.label}
-          </span>
-          <span className="ml-2 text-xs opacity-60">▼</span>
-        </span>
-      </button>
-      
-      {isOpen && (
-        <div className="theme-dropdown">
-          {options.map((option) => (
-            <button
-              key={option.value}
-              onClick={() => {
-                setTheme(option.value)
-                setIsOpen(false)
-              }}
-              className={`theme-dropdown-item ${theme === option.value ? 'active' : ''}`}
-            >
-              <span className="mr-2">{getThemeIcon(option.value)}</span>
-              {option.label}
-            </button>
-          ))}
-        </div>
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className="theme-switch"
+      aria-label={`Switch to ${next} mode`}
+    >
+      {theme === 'dark' ? (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+      ) : (
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
       )}
-    </div>
+    </button>
   )
 }

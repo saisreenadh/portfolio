@@ -1,55 +1,24 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+/* ---------- Colors: light by default, dark when the switch sets data-theme="dark" ---------- */
 :root {
-  --background: white;
-  --foreground: #222222;
-  --body-text: #444444;
-  --gray-600: #666666;
-  --gray-500: #888888;
-  --foreground-rgb: 34, 34, 34;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  color-scheme: light;
+  --background: #fafafa;
+  --foreground: #111111;
+  --muted: #8c8c8c;
+  --selection: #e5e5e5;
+  --ribbon: #223463;
 }
 
 [data-theme='dark'] {
-  --background: #1a1a1a;
-  --foreground: #dddddd;
-  --body-text: #aaaaaa;
-  --gray-600: #999999;
-  --gray-500: #777777;
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 26, 26, 26;
-  --background-end-rgb: 26, 26, 26;
+  color-scheme: dark;
+  --background: #101114;
+  --foreground: #ececec;
+  --muted: #858585;
+  --selection: #36373c;
 }
 
-/* Only apply transitions for theme changes, not during initial load */
-[data-theme] {
-  transition: none;
-}
-
-/* Only transition specific properties when changing themes */
-html.theme-ready [data-theme] {
-  transition: background-color 0.3s ease;
-}
-
-html.theme-ready {
-  transition: background-color 0.3s ease;
-}
-
-html.theme-ready body {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-html.theme-ready h1,
-html.theme-ready h2,
-html.theme-ready h3,
-html.theme-ready p,
-html.theme-ready a {
-  transition: color 0.3s ease;
-}
-
+/* ---------- Base ---------- */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -57,47 +26,11 @@ html.theme-ready a {
 }
 
 body {
-  color: var(--body-text);
-  background: rgb(var(--background-start-rgb));
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  font-size: 1rem;
-}
-
-h1 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--foreground);
-  margin-bottom: 0.875rem;
-}
-
-h2 {
-  font-size: 1.3125rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--foreground);
-  margin-top: 1.25rem;
-  margin-bottom: 0.875rem;
-}
-
-h3 {
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--foreground);
-  margin-top: 1rem;
-  margin-bottom: 0.625rem;
-}
-
-.text-lg {
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-p {
-  margin-bottom: 0.625rem;
 }
 
 a {
@@ -109,236 +42,165 @@ a:hover {
   color: var(--foreground);
 }
 
-.text-gray-600 {
-  color: var(--gray-600);
+/* Text selection: plain light gray, text keeps its color */
+::selection {
+  background: var(--selection);
+  color: inherit;
 }
 
-.text-gray-500 {
-  color: var(--gray-500);
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  opacity: 0.9;
-  transition: opacity 0.2s ease;
-  @apply p-1 rounded-lg transition-colors;
-}
-
-.social-icon:hover {
-  opacity: 1;
-  @apply hover:bg-gray-100;
-}
-
-[data-theme='dark'] .social-icon:hover {
-  @apply hover:bg-gray-800;
-}
-
-.social-icon img {
-  width: 18px !important;
-  height: 18px !important;
-  object-fit: contain;
-  opacity: 0.7;
-}
-
-[data-theme='dark'] .social-icon img {
-  filter: invert(90%);
-}
-
-.social-icon:hover img {
-  opacity: 1;
-}
-
-/* Slide up animation */
-.slide-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  will-change: opacity, transform;
-}
-
-.slide-up-show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Theme toggle and dropdown styles */
-.theme-toggle-button {
-  min-width: 120px;
-  height: 36px;
-  padding: 0 12px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background);
-  border: 1px solid var(--gray-500);
-  color: var(--foreground);
-  opacity: 0.7;
-  transition: all 0.2s ease;
-  font-size: 14px;
-}
-
-.theme-toggle-button:hover {
-  opacity: 1;
-  border-color: var(--foreground);
-}
-
-.theme-dropdown {
-  position: absolute;
-  right: 0;
-  margin-top: 8px;
-  padding: 6px;
-  width: 120px;
-  background: var(--background);
-  border: 1px solid var(--gray-500);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.theme-dropdown-item {
-  width: 100%;
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  text-align: left;
-  color: var(--gray-600);
+/* ---------- Theme switch (top right) ---------- */
+.theme-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
   border-radius: 8px;
-  transition: all 0.2s ease;
-  font-size: 14px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
 }
 
-.theme-dropdown-item:hover {
-  background: rgba(127, 127, 127, 0.1);
+.theme-switch:hover {
   color: var(--foreground);
 }
 
-.theme-dropdown-item.active {
-  color: var(--foreground);
-  background: rgba(127, 127, 127, 0.05);
+/* ---------- Home: text on the left, ribbon on the right ---------- */
+.home {
+  min-height: 100vh;
 }
 
-/* Theme dropdown styles */
-.dark .dark\:bg-gray-800 {
-  background-color: #1a1a1a;
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 64px;
+  padding: 0 max(32px, 20vw);
 }
 
-.dark .dark\:border-gray-700 {
-  border-color: #333333;
+.home-inner {
+  flex: 1;
+  min-width: 0;
+  max-width: 455px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
 }
 
-.dark .dark\:text-white {
-  color: var(--foreground);
+.home-inner p {
+  margin-bottom: 12px;
 }
 
-.dark .dark\:text-gray-400 {
-  color: var(--gray-600);
+.home-id {
+  width: fit-content;
 }
 
-.dark .dark\:hover\:bg-gray-700:hover {
-  background-color: #2a2a2a;
+.home-photo {
+  display: block;
+  /* width 0 + min-width = sized from the name's width (80% of it), never widening the box.
+     On short windows it shrinks (max 19% of window height) so the page still fits. */
+  width: 0;
+  min-width: min(80%, 19vh);
+  height: auto;
+  aspect-ratio: 1;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: 50% 30%;
 }
 
-/* Gradient wave animation keyframes */
-@keyframes textWave {
-  0% {
-    background-position: -500px 0;
+.home-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: 2px;
+}
+
+.home-meta,
+.home-dim,
+.home-label {
+  color: var(--muted);
+}
+
+.home-meta {
+  margin-bottom: 24px;
+}
+
+.home-section {
+  margin-top: 32px;
+}
+
+.home-label {
+  margin-bottom: 4px;
+}
+
+.home-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.home-strip {
+  align-self: stretch;
+  flex-shrink: 0;
+  width: 270px;
+}
+
+/* ---------- Ribbon (shape and outline set in Ribbon.js) ---------- */
+.ribbon {
+  position: relative;
+  width: 100%;
+  height: 95%; /* hangs from the top of the page */
+  background: var(--ribbon);
+}
+
+.ribbon-line,
+.ribbon-fill {
+  position: absolute;
+  inset: 0;
+}
+
+.ribbon-line {
+  background: color-mix(in srgb, var(--ribbon), white 22%);
+}
+
+.ribbon-fill {
+  background: var(--ribbon);
+}
+
+/* ---------- Desktop: exactly one screen tall, no scrolling ---------- */
+@media (min-width: 769px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
   }
-  100% {
-    background-position: 500px 0;
+
+  .home-content,
+  .home-strip {
+    height: 100vh;
+    height: 100dvh;
   }
 }
 
-.wave-text {
-  background: linear-gradient(90deg,
-    #3b82f6 0%,
-    #6366f1 30%,
-    #8b5cf6 50%,
-    #6366f1 70%,
-    #3b82f6 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  background-size: 500px 100%;
-  animation: textWave 5s linear infinite;
-  font-weight: 500;
-}
-
-[data-theme='dark'] .wave-text {
-  background: linear-gradient(90deg,
-    #60a5fa 0%,
-    #818cf8 30%,
-    #a78bfa 50%,
-    #818cf8 70%,
-    #60a5fa 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  background-size: 500px 100%;
-  animation: textWave 5s linear infinite;
-  font-weight: 500;
-}
-
-/* Mobile-specific styles */
-@media (max-width: 1024px) {
-  /* Mobile: collapse to single column */
-  .lg\:flex-row {
-    flex-direction: column !important;
-  }
-  
-  .lg\:w-80 {
-    width: 100% !important;
-  }
-  
-  .lg\:sticky {
-    position: static !important;
-  }
-  
-  .lg\:top-6 {
-    top: auto !important;
-  }
-  
-  .lg\:self-start {
-    align-self: auto !important;
-  }
-  
-  .lg\:gap-16 {
-    gap: 2rem !important;
-  }
-}
-
+/* ---------- Phones: ribbon becomes a band above the text ---------- */
 @media (max-width: 768px) {
-  /* Smaller mobile adjustments */
-  .w-24.h-24 {
-    width: 5rem !important;
-    height: 5rem !important;
+  .home-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 64px 20px;
   }
-  
-  h1 {
-    font-size: 1.25rem !important;
-  }
-  
-  h2 {
-    font-size: 1.125rem !important;
-  }
-  
-  .text-sm {
-    font-size: 0.875rem !important;
-  }
-  
-  .space-y-12 > * + * {
-    margin-top: 2rem !important;
-  }
-  
-  .gap-12 {
-    gap: 1.5rem !important;
+
+  .home-strip {
+    order: -1;
+    width: 100%;
+    height: 96px;
   }
 }

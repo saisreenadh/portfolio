@@ -1,5 +1,6 @@
 import './globals.css'
 import ThemeProvider from './components/ThemeProvider'
+import { GeistSans } from 'geist/font/sans'
 
 export const metadata = {
   title: 'Sreenadh Yandapalli | Portfolio',
@@ -11,26 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const savedTheme = localStorage.getItem('theme') || 'system';
-                  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  const theme = savedTheme === 'system' ? systemTheme : savedTheme;
-                  document.documentElement.setAttribute('data-theme', theme);
-                  // Transitions are disabled by default in CSS
-                } catch (e) {
-                  console.error('Failed to set initial theme', e);
-                }
-              })();
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" data-theme="light" className={GeistSans.variable} suppressHydrationWarning>
       <body>
         <ThemeProvider>
           {children}
