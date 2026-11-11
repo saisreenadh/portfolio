@@ -1,4 +1,4 @@
-// The navy ribbon on the right: hangs from the top of the page to 95% of its height,
+// The green ribbon on the right: hangs from the top of the page to 95% of its height,
 // with a V-notch tail and one thin outline following its sides and notch.
 
 const NOTCH = '7vh'
@@ -17,7 +17,7 @@ const shape = (i = 0) =>
 export default function Ribbon() {
   return (
     <div className="ribbon" style={{ clipPath: shape() }}>
-      {/* The outline: a lighter inset copy of the shape, covered by a navy copy 1px further in */}
+      {/* The outline: a lighter inset copy of the shape, covered by a green copy 1px further in */}
       <div className="ribbon-line" style={{ clipPath: shape(OUTLINE_INSET) }} />
       <div className="ribbon-fill" style={{ clipPath: shape(OUTLINE_INSET + OUTLINE_WIDTH) }} />
     </div>

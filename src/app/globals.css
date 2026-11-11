@@ -1,21 +1,14 @@
 @tailwind base;
 
-/* ---------- Colors: light by default, dark when the switch sets data-theme="dark" ---------- */
+/* ---------- Colors (light only) ---------- */
 :root {
   color-scheme: light;
   --background: #fafafa;
   --foreground: #111111;
   --muted: #8c8c8c;
   --selection: #e5e5e5;
-  --ribbon: #223463;
-}
-
-[data-theme='dark'] {
-  color-scheme: dark;
-  --background: #101114;
-  --foreground: #ececec;
-  --muted: #858585;
-  --selection: #36373c;
+  --ribbon: #1c4a37;
+  --loader-ink: #f1eedd;
 }
 
 /* ---------- Base ---------- */
@@ -48,27 +41,6 @@ a:hover {
   color: inherit;
 }
 
-/* ---------- Theme switch (top right) ---------- */
-.theme-switch {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 50;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-}
-
-.theme-switch:hover {
-  color: var(--foreground);
-}
-
 /* ---------- Home: text on the left, ribbon on the right ---------- */
 .home {
   min-height: 100vh;
@@ -93,24 +65,6 @@ a:hover {
 
 .home-inner p {
   margin-bottom: 12px;
-}
-
-.home-id {
-  width: fit-content;
-}
-
-.home-photo {
-  display: block;
-  /* width 0 + min-width = sized from the name's width (80% of it), never widening the box.
-     On short windows it shrinks (max 19% of window height) so the page still fits. */
-  width: 0;
-  min-width: min(80%, 19vh);
-  height: auto;
-  aspect-ratio: 1;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  object-fit: cover;
-  object-position: 50% 30%;
 }
 
 .home-name {
@@ -148,7 +102,7 @@ a:hover {
 .home-strip {
   align-self: stretch;
   flex-shrink: 0;
-  width: 270px;
+  width: 210px;
 }
 
 /* ---------- Ribbon (shape and outline set in Ribbon.js) ---------- */
@@ -200,5 +154,65 @@ a:hover {
 
   .home-strip {
     display: none;
+  }
+}
+
+/* ---------- Loading screen (timings mirror Loader.js) ---------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--ribbon);
+  color: var(--loader-ink);
+  transition: opacity 350ms ease;
+  /* If scripts never run, get out of the way on its own */
+  animation: loader-giveup 0s 6s forwards;
+}
+
+.loader-exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes loader-giveup {
+  to { visibility: hidden; }
+}
+
+/* The shape: ends as a tiny banner, notch and all */
+.loader-shape {
+  width: 56px;
+  height: 56px;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 76%, 0 100%);
+  transform: scale(0.8, 1.5);
+  animation: loader-to-banner 1300ms cubic-bezier(0.65, 0, 0.3, 1) 80ms backwards;
+}
+
+/* circle pops in -> squares off as it spins -> stretches tall while the notch cuts in */
+@keyframes loader-to-banner {
+  0% { transform: scale(0); border-radius: 50%; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%); }
+  20% { transform: scale(1); border-radius: 50%; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%); }
+  55% { transform: scale(1) rotate(360deg); border-radius: 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%); }
+  100% { transform: scale(0.8, 1.5) rotate(360deg); border-radius: 0; }
+}
+
+/* The text settles in as the loading screen fades (the ribbon stays put) */
+.home-inner {
+  animation: home-in 450ms ease-out 1650ms backwards;
+}
+
+@keyframes home-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-shape,
+  .home-inner {
+    animation: none;
   }
 }
