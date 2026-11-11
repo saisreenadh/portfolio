@@ -1,32 +1,18 @@
-import Image from 'next/image'
 import Ribbon from './components/Ribbon'
-import ThemeToggle from './components/ThemeToggle'
 
 const experience = [
-  { role: 'Member of Technical Staff, Grok Imagine', org: 'xAI' },
-  { role: 'MCP & AI Agents', org: 'AWS' },
-  { role: 'Computer Science (AI)', org: 'Stanford' },
+  { org: 'Neo Scholar', role: '2026 Cohort' },
+  { org: 'xAI', role: 'Member of Technical Staff, Grok Imagine' },
+  { org: 'AWS', role: 'MCP & AI Agents' },
+  { org: 'Stanford', role: 'Computer Science (AI)' },
 ]
 
 export default function Home() {
   return (
     <div className="home">
-      <ThemeToggle />
-
       <main className="home-content">
         <div className="home-inner">
-          {/* The photo is sized from the name's width (see .home-photo) */}
-          <div className="home-id">
-            <Image
-              src="/profile.jpg"
-              alt="Sreenadh Yandapalli"
-              width={300}
-              height={300}
-              className="home-photo"
-              priority
-            />
-            <h1 className="home-name">Sreenadh Yandapalli</h1>
-          </div>
+          <h1 className="home-name">Sreenadh Yandapalli</h1>
           <div className="home-meta">San Francisco &amp; San Diego</div>
 
           <p>

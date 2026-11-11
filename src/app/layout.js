@@ -1,5 +1,5 @@
 import './globals.css'
-import ThemeProvider from './components/ThemeProvider'
+import Loader from './components/Loader'
 import { GeistSans } from 'geist/font/sans'
 
 const title = 'Sreenadh Yandapalli'
@@ -20,11 +20,10 @@ export const viewport = { themeColor: '#fafafa' }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light" className={GeistSans.variable} suppressHydrationWarning>
+    <html lang="en" className={GeistSans.variable}>
       <body>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <Loader />
+        {children}
       </body>
     </html>
   )
