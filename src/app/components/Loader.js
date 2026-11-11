@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 // The loading screen: a full page in the banner's green. A cream circle pops in, squares
 // off, and stretches into a tiny copy of the banner; then the screen fades away.
-// Timings here are mirrored in globals.css (.loader-* and .home-inner).
+// Timings here are mirrored in globals.css (.loader-*).
 
 const SHOW_MS = 1650 // the shape morphs into the banner, then holds for a beat
 const FADE_MS = 350 // the screen fades away

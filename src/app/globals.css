@@ -197,21 +197,8 @@ a:hover {
   100% { transform: scale(0.8, 1.5) rotate(360deg); border-radius: 0; }
 }
 
-/* The text settles in as the loading screen fades (the ribbon stays put) */
-.home-inner {
-  animation: home-in 450ms ease-out 1650ms backwards;
-}
-
-@keyframes home-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .loader-shape,
-  .home-inner {
+  .loader-shape {
     animation: none;
   }
 }
